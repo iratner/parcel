@@ -1,9 +1,6 @@
 export const store = {
-    bucketData : {
-        bucketList : [],
-        bucketListById : {}
+    data : {
     },
-    bucketUi : {
-        typeFilter : 'SHOW_ALL'
+    ui : {
     }
 }

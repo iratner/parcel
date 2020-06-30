@@ -3,7 +3,7 @@ import { updateState } from "./reducer_helpers";
 import { store } from '../_store';
 
 
-export default function(state = store.bucketUi, action) {
+export default function(state = store.ui, action) {
 
     switch (action.type) {
         case SET_TYPE_FILTER:

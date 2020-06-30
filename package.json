@@ -23,7 +23,8 @@
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -32,6 +33,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "parcel-bundler": "^1.12.4",
+    "prettier": "^2.0.5",
     "redux-devtools": "^3.5.0",
     "sanitize.css": "^11.0.0"
   }

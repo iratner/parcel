@@ -1,43 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from './redux/init_redux';
+import { BrowserRouter as Router } from "react-router-dom";
 
-import { FoodApp } from './src/containers';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducers from "./redux/init_redux";
 
-class Food extends React.Component {
+import { SelectRoute } from "./src/containers";
 
-    constructor(props) {
-        super(props);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            ready: false,
-            store: null
-        }
-    }
+    this.state = {
+      ready: false,
+      store: null,
+    };
+  }
 
-    componentDidMount() {
-        this.setState({ store : createStore(reducers, /* some json/javascript object */)});
-    }
+  componentDidMount() {
+    this.setState({
+      store: createStore(
+        reducers,
+        {},
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      ),
+    });
+  }
 
-    render() {
-        const { store } = this.state;
+  render() {
+    const { store } = this.state;
 
-        return store
-                ? (
-                    <div>
-                        <h1>Food is {this.props.name}</h1>
-                        <h2>Production? {process.env.NODE_ENV}</h2>
-                        <FoodApp/>
-                    </div>
-                ) : <div>Whoops</div>
-            ;
-
-
-    }
+    return store ? (
+      <Provider store={store}>
+        <Router>
+          <SelectRoute />
+        </Router>
+      </Provider>
+    ) : (
+      <div>Insert a Loader</div>
+    );
+  }
 }
 
-const mountNode = document.getElementById('app');
-ReactDOM.render(<Food name="Food" />, mountNode);
+const mountNode = document.getElementById("app");
+ReactDOM.render(<App />, mountNode);
