@@ -5,7 +5,7 @@ export const SelectRoute = () => {
   return (
     <Switch>
       <Route path={"/"}>
-        <div>This is home</div>
+        <div>Build me out sister!</div>
       </Route>
     </Switch>
   );
